@@ -1,4 +1,5 @@
 import React from 'react';
+import dictionary_home_screen from"../assets/dictionary_home_screen.jpg"
 
 // Custom SVG Icons
 const CheckCircleIcon = () => (
@@ -26,48 +27,66 @@ const OurAppSection = () => (
       <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-16">
         {/* Left Column - Phone Mockup and Image */}
         <div className="w-full lg:w-1/2 flex justify-center p-8 bg-gray-100 rounded-2xl shadow-inner">
-          <div className="relative w-full max-w-sm aspect-[9/18] bg-gray-800 rounded-3xl shadow-lg transform rotate-3 -translate-y-4 transition-transform duration-500 ease-in-out hover:rotate-0 hover:translate-y-0">
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gray-600"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] aspect-[9/18] overflow-hidden rounded-[20px]">
-              {/* This is the new placeholder image */}
-              <img 
-                src="https://placehold.co/400x800/3b82f6/ffffff?text=Dictionary+App+UI" 
-                alt="English Urdu Dictionary Pro App on a smartphone" 
-                className="w-full h-full object-cover" 
-              />
-            </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-20 h-2 rounded-full bg-gray-600"></div>
+          <div className="relative w-full max-w-sm aspect-[9/18] bg-gray-800 rounded-3xl shadow-lg lg:transform lg:rotate-3 lg:-translate-y-4 lg:transition-transform lg:duration-500 lg:ease-in-out lg:hover:rotate-0 lg:hover:translate-y-0">
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.hfad.personaldictionary" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="absolute inset-0 block" // Make the link cover the entire phone mockup
+            >
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gray-600"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] aspect-[9/18] overflow-hidden rounded-[20px]">
+                <img 
+                  src={dictionary_home_screen}
+                  alt="English Urdu Dictionary Pro App on a smartphone" 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-20 h-2 rounded-full bg-gray-600"></div>
+            </a>
           </div>
         </div>
 
         {/* Right Column - Features and Button */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+        <div className="w-full lg:w-1/2">
+          <p className="text-xl text-gray-600 mb-6 leading-relaxed text-justify lg:text-left">
             English Urdu Dictionary Pro is a fast and comprehensive offline dictionary designed for students and professionals. With powerful features like OCR and quizzes, it’s the ultimate tool to boost your language skills.
           </p>
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">Easily translate English words to Urdu</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">Fast and simple search interface</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">Includes meanings, pronunciation, synonyms, antonyms</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">Works offline – no internet required</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">OCR & image recognition – translate text and identify objects</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircleIcon />
+            <div className="flex items-start space-x-3">
+              <span className="flex-shrink-0 mt-1">
+                <CheckCircleIcon />
+              </span>
               <span className="text-lg text-gray-700">Quizzes, favorites, and history to boost learning</span>
             </div>
           </div>

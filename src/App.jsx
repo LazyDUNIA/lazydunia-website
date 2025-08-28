@@ -1,129 +1,161 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomeSection from './components/HomeSection';
-import CurrentAppSection from './components/OurAppSection';
-import UpcomingAppSection from './components/UpcomingAppSection';
+  import React, { useState } from 'react';
+  import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+  import HomeSection from './components/HomeSection';
+  import CurrentAppSection from './components/OurAppSection';
+  import UpcomingAppSection from './components/UpcomingAppSection';
 
-const App = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const App = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
-  const NavItem = ({ to, label }) => (
-    <Link
-      to={to}
-      onClick={() => setMenuOpen(false)}
-      className="group relative inline-flex items-center text-lg md:text-xl font-medium text-slate-700 hover:text-slate-900 transition-colors"
-    >
-      {label}
-      <span
-        className="pointer-events-none absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-500 transition-all duration-300 w-0 group-hover:w-full"
-      />
-    </Link>
-  );
+    const NavItem = ({ to, label }) => (
+      <Link
+        to={to}
+        onClick={() => setMenuOpen(false)}
+        className="group relative inline-flex items-center text-lg md:text-xl font-medium text-slate-700 hover:text-slate-900 transition-colors"
+      >
+        {label}
+        <span
+          className="pointer-events-none absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-500 transition-all duration-300 w-0 group-hover:w-full"
+        />
+      </Link>
+    );
 
-  return (
-    <Router>
-      <div className="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col antialiased max-w-full overflow-x-hidden">
-        {/* Navbar */}
-        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 supports-[backdrop-filter]:bg-white/60 border-b border-white/20">
-          <div className="relative">
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 relative">
-              
-              {/* Mobile burger button aligned with page padding */}
-              <div className="absolute left-4 md:hidden">
-                <button
-                  aria-label="Toggle menu"
-                  onClick={() => setMenuOpen(!menuOpen)}
-                  className="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/70 bg-white/60 backdrop-blur-xl px-3 py-2 transition hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="26"
-                    height="26"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-slate-700"
+    return (
+      <Router>
+        <div className="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col antialiased max-w-full overflow-x-hidden">
+          {/* Navbar */}
+          <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 supports-[backdrop-filter]:bg-white/60 border-b border-white/20">
+            <div className="relative">
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 relative">
+                
+                {/* Mobile burger button aligned with page padding */}
+                <div className="absolute left-4 md:hidden">
+                  <button
+                    aria-label="Toggle menu"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/70 bg-white/60 backdrop-blur-xl px-3 py-2 transition hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   >
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                  </svg>
-                </button>
-              </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="26"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-slate-700"
+                    >
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <line x1="3" y1="12" x2="21" y2="12" />
+                      <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                  </button>
+                </div>
 
-              {/* Brand / Title */}
-              <div className="flex-1 text-center md:text-left">
-                <h1
-                  className="text-3xl md:text-4xl font-bold cursor-pointer"
-                  style={{ fontFamily: 'Georgia, Times New Roman, serif', color: '#1E40AF' }}
-                >
-                  <Link to="/">Lazy DUNIA</Link>
-                </h1>
-              </div>
+                {/* Brand / Title */}
+                <div className="flex-1 text-center md:text-left">
+                  <h1
+                    className="text-3xl md:text-4xl font-bold cursor-pointer"
+                    style={{ fontFamily: 'Georgia, Times New Roman, serif', color: '#1E40AF' }}
+                  >
+                    <Link to="/">Lazy DUNIA</Link>
+                  </h1>
+                </div>
 
-              {/* Desktop nav */}
-              <div className="hidden md:flex items-center gap-10">
-                <NavItem to="/" label="Home" />
-                <NavItem to="/our-apps" label="Our Apps" />
-                <NavItem to="/upcoming-apps" label="Upcoming Apps" />
-              </div>
-            </div>
-
-            {/* Mobile menu panel */}
-            {menuOpen && (
-              <div className="md:hidden mx-4 mt-2 rounded-2xl bg-white/80 backdrop-blur-xl ring-1 ring-slate-200 shadow-lg overflow-hidden">
-                <div className="flex flex-col">
-                  <Link
-                    to="/"
-                    onClick={() => setMenuOpen(false)}
-                    className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to="/our-apps"
-                    onClick={() => setMenuOpen(false)}
-                    className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
-                  >
-                    Our Apps
-                  </Link>
-                  <Link
-                    to="/upcoming-apps"
-                    onClick={() => setMenuOpen(false)}
-                    className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
-                  >
-                    Upcoming Apps
-                  </Link>
+                {/* Desktop nav */}
+                <div className="hidden md:flex items-center gap-10">
+                  <NavItem to="/" label="Home" />
+                  <NavItem to="/our-apps" label="Our Apps" />
+                  <NavItem to="/upcoming-apps" label="Upcoming Apps" />
                 </div>
               </div>
-            )}
+
+              {/* Mobile menu panel */}
+              {menuOpen && (
+                <div className="md:hidden mx-4 mt-2 rounded-2xl bg-white/80 backdrop-blur-xl ring-1 ring-slate-200 shadow-lg overflow-hidden">
+                  <div className="flex flex-col">
+                    <Link
+                      to="/"
+                      onClick={() => setMenuOpen(false)}
+                      className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      to="/our-apps"
+                      onClick={() => setMenuOpen(false)}
+                      className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
+                    >
+                      Our Apps
+                    </Link>
+                    <Link
+                      to="/upcoming-apps"
+                      onClick={() => setMenuOpen(false)}
+                      className="px-4 py-4 text-lg font-medium transition flex items-center text-slate-700 hover:bg-slate-50"
+                    >
+                      Upcoming Apps
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Main Section */}
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomeSection />} />
+              <Route path="/our-apps" element={<CurrentAppSection />} />
+              <Route path="/upcoming-apps" element={<UpcomingAppSection />} />
+            </Routes>
+          </main>
+
+          {/* Footer */}
+     <footer className="bg-slate-900 text-white py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-4">Connect with us</h3>
+            <div className="flex justify-center space-x-6">
+              {/* Twitter Icon */}
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.533A8.303 8.303 0 0022 5.564a8.136 8.136 0 01-2.357.646A4.128 4.128 0 0021.6 4c-.81.48-1.711.838-2.652 1.03a4.096 4.096 0 00-6.993 3.733 11.611 11.611 0 01-8.457-4.276 4.07 4.07 0 001.27 5.483c-.792-.025-1.528-.24-2.17-.597a4.053 4.053 0 003.29 4.008 4.048 4.048 0 01-1.834.07a4.127 4.127 0 003.834 2.85A8.23 8.23 0 012 18.29a11.616 11.616 0 006.29 1.96" />
+                </svg>
+              </a>
+              {/* Instagram Icon */}
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2c2.71 0 3.05.01 4.12.06.33.02.5.07.61.16.14.12.24.27.27.42.06 1.07.06 1.41.06 4.12s-.01 3.05-.06 4.12c-.02.33-.07.5-.16.61-.12.14-.27.24-.42.27-1.07.06-1.41.06-4.12.06s-3.05-.01-4.12-.06c-.33-.02-.5-.07-.61-.16-.14-.12-.24-.27-.27-.42-.06-1.07-.06-1.41-.06-4.12s.01-3.05.06-4.12c.02-.33.07-.5.16-.61.12-.14.27-.24.42-.27C8.93 2.01 9.27 2 12 2zm0-2c-2.73 0-3.08.01-4.12.06-1.05.05-1.7.23-2.3.47-.6.24-1.1.55-1.6.96-.5.4-.8.9-1.06 1.5-.24.6-.42 1.25-.47 2.3-.05 1.04-.06 1.39-.06 4.12s.01 3.08.06 4.12c.05 1.05.23 1.7.47 2.3.24.6.55 1.1.96 1.6.4.5.9.8 1.5 1.06.6.24 1.25.42 2.3.47 1.04.05 1.39.06 4.12.06s3.08-.01 4.12-.06c1.05-.05 1.7-.23 2.3-.47.6-.24 1.1-.55 1.6-.96.5-.4.8-.9 1.06-1.5.24-.6.42-1.25.47-2.3.05-1.04.06-1.39.06-4.12s-.01-3.08-.06-4.12c-.05-1.05-.23-1.7-.47-2.3-.24-.6-.55-1.1-.96-1.6-.4-.5-.9-.8-1.5-1.06-.6-.24-1.25-.42-2.3-.47C15.08 0 14.73 0 12 0zm0 5.8c-3.41 0-6.2 2.79-6.2 6.2s2.79 6.2 6.2 6.2 6.2-2.79 6.2-6.2-2.79-6.2-6.2-6.2zm0 10.2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-11.4c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2z" />
+                </svg>
+              </a>
+              {/* LinkedIn Icon */}
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19.782 2.91C18.156 2.003 16.32 1.5 14.343 1.5c-4.99 0-9.027 4.037-9.027 9.027s4.037 9.027 9.027 9.027c1.977 0 3.813-.503 5.439-1.411v.001c.216.126.398.246.549.362.15.115.267.227.35.334.084.107.132.216.147.327.016.11.016.225 0 .34-.016.115-.05.228-.102.333-.053.105-.119.206-.197.302-.078.096-.169.186-.273.27a.994.994 0 00-.317.332c-.097.126-.207.25-.33.37-.123.12-.259.239-.41.354-.15.116-.318.225-.503.328-.184.103-.385.198-.602.288-.217.09-.448.174-.693.25-.246.076-.505.145-.777.208-.272.063-.556.113-.85.15-.294.038-.6.06-.917.06-.827 0-1.636-.088-2.427-.264-1.58-.358-2.924-1.12-4.038-2.288-.934-.972-1.64-2.126-2.062-3.414-.423-1.288-.588-2.65-.487-4.043.102-1.393.447-2.73 1.037-4.004.59-1.275 1.344-2.44 2.262-3.49.918-1.05 1.956-1.92 3.114-2.6.938-.54 1.93-.974 2.973-1.306.87-.279 1.76-.484 2.668-.616.908-.131 1.828-.17 2.748-.115s1.82.203 2.68.49c.86.287 1.68.647 2.458 1.082s1.5 1.033 2.126 1.758a.99.99 0 01-.707 1.764c-.183-.002-.365.044-.543.138-.178.095-.34.22-.486.375s-.272.33-.357.514c-.086.185-.14.382-.162.585-.022.203-.022.41-.004.613.019.204.06.402.12.593.06.192.13.376.21.55l.001.001c.42.846.96 1.62 1.62 2.316.66.696 1.373 1.326 2.148 1.892.775.565 1.603 1.066 2.477 1.503.874.437 1.805.81 2.776 1.117s2.003.54 3.033.64c.594.057 1.18.06 1.758 0 .578-.057 1.13-.172 1.657-.344.527-.172 1.018-.403 1.472-.69-.001-.001-.002-.002-.003-.003-.493-.314-.954-.666-1.385-1.055-.43-.388-.82-.81-1.17-1.263l-.001-.001c-.139-.181-.258-.372-.358-.57-.1-.2-.178-.409-.234-.627-.056-.217-.083-.442-.081-.669.002-.228.026-.454.072-.676.046-.222.115-.436.205-.643.09-.206.199-.404.327-.591.128-.188.271-.366.429-.53.158-.163.329-.317.511-.462.181-.144.375-.278.58-.402.204-.124.418-.237.641-.34.224-.103.456-.196.697-.278s.492-.15.75-.19.52-.07.78-.088l.001-.001c.54-.055 1.08-.055 1.62-.001.54.053 1.07.159 1.58.315.51.156.99.362 1.44.618.45.257.87.564 1.25.92l.001.001c.73.68 1.32 1.455 1.76 2.327.44.872.64 1.815.6 2.802-.04 1.99-.74 3.868-2.07 5.568-1.33 1.7-3.142 2.92-5.26 3.66-2.12.74-4.385 1.04-6.666.89-2.282-.15-4.48-.94-6.32-2.36-.001-.001-.002-.002-.003-.003zm-5.83-8.855c.162.086.32.17.472.253.15.083.298.164.444.242.146.079.29.155.43.228.14.073.27.14.4.202.26.126.52.24 1.07.48.55.24 1.25.5 2.1 1.03.85.53 1.86.88 3.03 1.04 1.17.16 2.37.07 3.59-.262 1.22-.33 2.37-.872 3.44-1.625 1.07-.753 2.05-1.74 2.89-2.92.84-1.18 1.54-2.58 2.1-4.14.56-1.56.97-3.23 1.24-4.99-.04.01-.08.02-.12.03-.54.12-1.07.27-1.59.46-.52.19-1.04.4-1.54.65-.5.25-.99.52-1.46.82-.47.3-.92.62-1.35.96-.43.34-.84.7-.1.08-.06.13-.11.19-.17.25-.06.06-.12.11-.18.17-.06.06-.11.12-.17.18s-.11.12-.17.18c-.06.06-.11.11-.16.17-.05.06-.1.11-.15.16-.05.05-.09.1-.14.15-.05.05-.09.1-.13.14-.04.04-.08.08-.12.12-.04.04-.08.08-.12.12-.04.04-.07.08-.11.11-.03.04-.06.07-.09.11-.03.04-.06.07-.09.1-.03.03-.06.06-.09.09-.03.03-.06.06-.08.09-.02.03-.04.06-.07.08-.03.02-.05.05-.07.07-.02.02-.04.04-.06.06-.02.02-.03.03-.05.05-.01.02-.03.03-.04.04-.01.01-.02.02-.03.03-.01.01-.01.01-.02.02s-.01.01-.01.01c-.01.01-.01.01-.01.01-.01.01-.01.01-.01.01l-.001-.001c.21.05.41.1.61.16.2.06.4.12.6.18.2.06.4.12.59.18.2.06.4.12.58.18.18.06.36.12.54.18.18.06.35.12.53.18.18.06.34.12.51.18.17.06.33.12.5.18.16.06.32.12.48.17.16.06.31.11.47.17.16.05.3.1.45.15.15.05.29.1.43.15.14.05.27.09.4.13.13.04.26.08.38.12.12.04.24.08.35.11.11.03.22.06.33.08.11.02.21.04.31.05.1.01.2.02.29.02.09.01.18.01.26.01.08.01.15.01.22.01.07 0 .14 0 .21 0 .07 0 .14 0 .2 0 .06 0 .12 0 .18 0 .06 0 .12 0 .18 0 .06 0 .12 0 .17 0 .05 0 .11 0 .16 0 .05 0 .1-.01.15-.01.05-.01.09-.02.14-.03.05-.01.09-.02.13-.03.04-.01.08-.02.12-.03.04-.01.08-.02.11-.03.03-.01.07-.02.1-.03.03-.01.06-.02.09-.03.03-.01.06-.02.08-.03.02-.01.05-.02.07-.03.02-.01.04-.02.06-.02.02-.01.04-.02.06-.02.02-.01.03-.01.05-.02.02-.01.03-.01.04-.02.01-.01.02-.01.03-.01.01-.01.02-.01.02-.01s.01-.01.01-.01c.01-.01.01-.01.01-.01s.01-.01.01-.01c.01-.01.01-.01.01-.01-.001-.001-.002-.002-.003-.003z"/>
+                </svg>
+              </a>
+              {/* TikTok Icon (newly added) */}
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.532 2.518V1.42c-2.348.014-4.834.02-7.319 0-.012.062-.023.123-.036.185-.851 4.316-2.583 6.643-5.26 9.49l-.025.027.026.023c.338.297.674.597 1.012.894.015.014.03.027.045.042.845.824 1.7 1.637 2.565 2.443 1.353 1.264 2.87 2.228 4.708 2.628.012-.06.02-.122.028-.182.012-1.782.03-3.565.044-5.347.004-.092.008-.184.01-.275.22-.05.44-.09.66-.13.003.02-.002.04.004.062.016 1.63.03 3.26.046 4.89.006.195.008.39-.01.585.004 1.487-.008 2.97-.024 4.455.033.02.067.032.1.048.06.03 1.15-.098 2.3-.12.037.01.075.02.112.028 1.43.084 2.72.068 3.864-.47.66-.318 1.25-.79 1.76-1.34.508-.55 1.01-1.22 1.48-1.928.47-.708.904-1.464 1.34-2.235.438-.77.854-1.554 1.254-2.35.402-.8.766-1.614 1.13-2.43.364-.816.702-1.64.996-2.482.296-.84.55-1.696.772-2.56.008-.04.016-.078.026-.118l.044.004.043.004c-.033.155-.067.31-.098.468-.13.62-.294 1.23-.48 1.838-.185.608-.39 1.21-.617 1.808-.227.598-.485 1.19-.773 1.77-.29.58-.61 1.15-.963 1.706-.353.557-.74 1.1-.15.08-.06.13-.11.19-.17.25-.06.06-.12.11-.18.17-.06.06-.11.12-.17.18s-.11.12-.17.18c-.06.06-.11.11-.16.17-.05.06-.1.11-.15.16-.05.05-.09.1-.14.15-.05.05-.09.1-.13.14-.04.04-.08.08-.12.12-.04.04-.08.08-.12.12-.04.04-.07.08-.11.11-.03.04-.06.07-.09.11-.03.04-.06.07-.09.1-.03.03-.06.06-.09.09-.03.03-.06.06-.08.09-.02.03-.04.06-.07.08-.03.02-.05.05-.07.07-.02.02-.04.04-.06.06-.02.02-.03.03-.05.05-.01.02-.03.03-.04.04-.01.01-.02.02-.03.03-.01.01-.01.01-.02.02s-.01.01-.01.01c-.01.01-.01.01-.01.01-.01.01-.01.01-.01.01-.01.01-.01.01-.01.01l-.001-.001c.21.05.41.1.61.16.2.06.4.12.6.18.2.06.4.12.59.18.2.06.4.12.58.18.18.06.36.12.54.18.18.06.35.12.53.18.18.06.34.12.51.18.17.06.33.12.5.18.16.06.32.12.48.17.16.06.31.11.47.17.16.05.3.1.45.15.15.05.29.1.43.15.14.05.27.09.4.13.13.04.26.08.38.12.12.04.24.08.35.11.11.03.22.06.33.08.11.02.21.04.31.05.1.01.2.02.29.02.09.01.18.01.26.01.08.01.15.01.22.01.07 0 .14 0 .21 0 .07 0 .14 0 .2 0 .06 0 .12 0 .18 0 .06 0 .12 0 .18 0 .06 0 .12 0 .17 0 .05 0 .11 0 .16 0 .05 0 .1-.01.15-.01.05-.01.09-.02.14-.03.05-.01.09-.02.13-.03.04-.01.08-.02.12-.03.04-.01.08-.02.11-.03.03-.01.07-.02.1-.03.03-.01.06-.02.09-.03.03-.01.06-.02.08-.03.02-.01.05-.02.07-.03.02-.01.04-.02.06-.02.02-.01.04-.02.06-.02.02-.01.03-.01.05-.02.02-.01.03-.01.04-.02.01-.01.02-.01.03-.01.01-.01.02-.01.02-.01s.01-.01.01-.01c.01-.01.01-.01.01-.01s.01-.01.01-.01c.01-.01.01-.01.01-.01-.001-.001-.002-.002-.003-.003z"/>
+                </svg>
+              </a>
+            </div>
           </div>
-        </nav>
+          <p className="text-base text-gray-400 mt-4">
+            <a href="lazydunia.contact@gmail.com" className="hover:text-white transition-colors">lazydunia.contact@gmail.com</a>
+          </p>
+          <p className="text-base text-gray-400 mt-4">
+            &copy; {new Date().getFullYear()} Lazy DUNIA. All rights reserved.
+          </p>
+        </div>
+      </footer>
+        </div>
+      </Router>
+    );
+  };
 
-        {/* Main Section */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomeSection />} />
-            <Route path="/our-apps" element={<CurrentAppSection />} />
-            <Route path="/upcoming-apps" element={<UpcomingAppSection />} />
-          </Routes>
-        </main>
-
-        {/* Footer */}
-        <footer className="bg-slate-900 text-white py-10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-base">
-              &copy; {new Date().getFullYear()} Lazy DUNIA. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
-    </Router>
-  );
-};
-
-export default App;
+  export default App;
