@@ -146,7 +146,7 @@
             </div>
           </div>
           <p className="text-base text-gray-400 mt-4">
-            <a href="lazydunia.contact@gmail.com" className="hover:text-white transition-colors">lazydunia.contact@gmail.com</a>
+            <a href="mailto:lazydunia.contact@gmail.com" className="hover:text-white transition-colors">lazydunia.contact@gmail.com</a>
           </p>
           <p className="text-base text-gray-400 mt-4">
             &copy; {new Date().getFullYear()} Lazy DUNIA. All rights reserved.
