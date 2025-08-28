@@ -21,11 +21,11 @@ const UpcomingAppSection = () => (
       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
         Our Next App: <span className="text-pink-600">LazyShare</span>
       </h2>
-<p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-  We're building <span className="font-semibold">LazyShare</span>, a fast and secure file transfer app that lets you easily
-  share data between your mobile device and laptop, or vice versa—wirelessly.  
-  Whether it's photos, videos, documents, or files of any size, LazyShare makes data sharing seamless and lightning-fast.
-</p>
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed text-justify sm:text-center">
+        We're building <span className="font-semibold">LazyShare</span>, a fast and secure file transfer app that lets you easily
+        share data between your mobile device and laptop, or vice versa—wirelessly.  
+        Whether it's photos, videos, documents, or files of any size, LazyShare makes data sharing seamless and lightning-fast.
+      </p>
       <div className="mt-12">
         <div className="bg-gray-100 rounded-xl px-6 py-4 inline-block">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide">

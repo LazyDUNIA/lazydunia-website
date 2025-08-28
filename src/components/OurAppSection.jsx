@@ -8,33 +8,40 @@ const CheckCircleIcon = () => (
   </svg>
 );
 
-const BookIcon = () => (
+const PhoneIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-pink-500">
-    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20h-4v-4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2Z" />
-    <path d="M8 2h12v20H8a2 2 0 0 1-2-2Z" />
+    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+    <path d="M12 18h.01" />
   </svg>
 );
 
-// Changed the component name from CurrentAppSection to OurAppSection
+// Main App showcase component
 const OurAppSection = () => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 max-w-full overflow-x-hidden">
     <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16">
-      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">
-        <span className="text-indigo-600">English Urdu Dictionary Pro</span>
+      {/* Updated Title Styling */}
+      <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 text-center mb-10 tracking-wide">
+        English Urdu <span className="text-indigo-600">Dictionary Pro</span>
       </h2>
-      <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">
-        <div className="w-full md:w-1/2">
-          <div className="bg-gray-200 rounded-2xl p-6 flex justify-center items-center overflow-hidden shadow-inner">
-            <div className="bg-gray-800 rounded-3xl p-4 shadow-lg transform rotate-6">
-              <BookIcon />
-              <div className="mt-4 p-4 bg-white rounded-xl shadow-inner">
-                <p className="text-gray-800 text-sm">Dictionary App</p>
-                <div className="h-40 bg-gray-100 rounded-lg mt-2 animate-pulse"></div>
-              </div>
+      <div className="flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-16">
+        {/* Left Column - Phone Mockup and Image */}
+        <div className="w-full lg:w-1/2 flex justify-center p-8 bg-gray-100 rounded-2xl shadow-inner">
+          <div className="relative w-full max-w-sm aspect-[9/18] bg-gray-800 rounded-3xl shadow-lg transform rotate-3 -translate-y-4 transition-transform duration-500 ease-in-out hover:rotate-0 hover:translate-y-0">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gray-600"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] aspect-[9/18] overflow-hidden rounded-[20px]">
+              {/* This is the new placeholder image */}
+              <img 
+                src="https://placehold.co/400x800/3b82f6/ffffff?text=Dictionary+App+UI" 
+                alt="English Urdu Dictionary Pro App on a smartphone" 
+                className="w-full h-full object-cover" 
+              />
             </div>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-20 h-2 rounded-full bg-gray-600"></div>
           </div>
         </div>
-        <div className="w-full md:w-1/2 text-center md:text-left">
+
+        {/* Right Column - Features and Button */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
           <p className="text-xl text-gray-600 mb-6 leading-relaxed">
             English Urdu Dictionary Pro is a fast and comprehensive offline dictionary designed for students and professionals. With powerful features like OCR and quizzes, it’s the ultimate tool to boost your language skills.
           </p>
@@ -64,13 +71,14 @@ const OurAppSection = () => (
               <span className="text-lg text-gray-700">Quizzes, favorites, and history to boost learning</span>
             </div>
           </div>
-          <div className="mt-8">
-            <button
-                onClick={() => window.open('https://play.google.com/store/apps/details?id=com.hfad.personaldictionary', '_blank')}
-                className="bg-blue-600 text-white text-lg font-medium px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                Get it on Google Play
-            </button>
+          {/* New Google Play Button */}
+          <div className="mt-12 flex justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.hfad.personaldictionary" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-gray-900 text-white rounded-full px-6 py-3 shadow-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105">
+              <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+                <path d="M2.035 1.545a1 1 0 011.666-.027l18.5 9a1 1 0 010 1.74l-18.5 9a1 1 0 01-1.666-.973L3.6 12 2.035 1.545z" />
+              </svg>
+              <span className="font-semibold">Get it on Google Play</span>
+            </a>
           </div>
         </div>
       </div>

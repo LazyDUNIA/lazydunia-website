@@ -7,20 +7,18 @@ import UpcomingAppSection from './components/UpcomingAppSection';
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const NavItem = ({ to, label }) => {
-    return (
-      <Link
-        to={to}
-        onClick={() => setMenuOpen(false)}
-        className="group relative inline-flex items-center text-lg md:text-xl font-medium text-slate-700 hover:text-slate-900 transition-colors"
-      >
-        {label}
-        <span
-          className="pointer-events-none absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-500 transition-all duration-300 w-0 group-hover:w-full"
-        />
-      </Link>
-    );
-  };
+  const NavItem = ({ to, label }) => (
+    <Link
+      to={to}
+      onClick={() => setMenuOpen(false)}
+      className="group relative inline-flex items-center text-lg md:text-xl font-medium text-slate-700 hover:text-slate-900 transition-colors"
+    >
+      {label}
+      <span
+        className="pointer-events-none absolute -bottom-1 left-0 h-[3px] rounded-full bg-sky-500 transition-all duration-300 w-0 group-hover:w-full"
+      />
+    </Link>
+  );
 
   return (
     <Router>
@@ -29,29 +27,14 @@ const App = () => {
         <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 supports-[backdrop-filter]:bg-white/60 border-b border-white/20">
           <div className="relative">
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex h-20 items-center justify-between">
-                {/* Brand */}
-                <div className="flex items-center">
-                  <h1
-                    className="text-4xl font-bold text-center cursor-pointer"
-                    style={{ fontFamily: 'Georgia, Times New Roman, serif', color: '#1E40AF' }}>
-                    <Link to="/">Lazy DUNIA</Link>
-                  </h1>
-                </div>
-
-                {/* Desktop nav */}
-                <div className="hidden md:flex items-center gap-10">
-                  <NavItem to="/" label="Home" />
-                  <NavItem to="/our-apps" label="Our Apps" />
-                  <NavItem to="/upcoming-apps" label="Upcoming Apps" />
-                </div>
-
-                {/* Mobile menu button */}
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 relative">
+              
+              {/* Mobile burger button aligned with page padding */}
+              <div className="absolute left-4 md:hidden">
                 <button
                   aria-label="Toggle menu"
                   onClick={() => setMenuOpen(!menuOpen)}
-                  className="md:hidden inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/70 bg-white/60 backdrop-blur-xl px-3 py-2 transition hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-200/70 bg-white/60 backdrop-blur-xl px-3 py-2 transition hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +53,23 @@ const App = () => {
                     <line x1="3" y1="18" x2="21" y2="18" />
                   </svg>
                 </button>
+              </div>
+
+              {/* Brand / Title */}
+              <div className="flex-1 text-center md:text-left">
+                <h1
+                  className="text-3xl md:text-4xl font-bold cursor-pointer"
+                  style={{ fontFamily: 'Georgia, Times New Roman, serif', color: '#1E40AF' }}
+                >
+                  <Link to="/">Lazy DUNIA</Link>
+                </h1>
+              </div>
+
+              {/* Desktop nav */}
+              <div className="hidden md:flex items-center gap-10">
+                <NavItem to="/" label="Home" />
+                <NavItem to="/our-apps" label="Our Apps" />
+                <NavItem to="/upcoming-apps" label="Upcoming Apps" />
               </div>
             </div>
 
@@ -117,7 +117,7 @@ const App = () => {
         <footer className="bg-slate-900 text-white py-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-base">
-              &copy; {new Date().getFullYear()} LazyDunia. All rights reserved.
+              &copy; {new Date().getFullYear()} Lazy DUNIA. All rights reserved.
             </p>
           </div>
         </footer>
